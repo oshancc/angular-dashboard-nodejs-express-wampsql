@@ -1,0 +1,143 @@
+<div class="container">
+  <h4 class="d-flex justify-content-center">PHP and MySQL CRUD Operations using Jquary</h4>
+</div>
+
+<app-card1></app-card1>
+
+<button style="margin-left: 10%;" type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal1" data-backdrop="static" data-keyboard="false">
+  Add New Record
+</button>
+
+<table class="table table-striped " style="width: 80%; margin:10px auto;">
+  <thead>
+    <tr >
+      <th scope="col">
+
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="EmployeeIdFilter" class=""form-Control (keyup)="FilterFn()" placeholder="Filter">
+
+          <button type="button" class="btn btn-light" (click)="sortResult()">
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z"/>
+            </svg>
+          </button>
+        </div>
+
+        No.</th>
+      <th scope="col">
+        <div class="d-flex flex-row">
+          <input [(ngModel)]="EmployeeNameFilter" class=""form-Control (keyup)="FilterFn()" placeholder="Filter">
+        </div>
+        First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email Address</th>
+      <th scope="col">Age</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let i of EmployeeList; let k = index">
+      <td *ngFor="let cell of i">{{cell}}</td>
+      <td><button style="margin-left: 10%;" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-backdrop="static" data-keyboard="false" (click)='updateClick(i[0])'>
+            Update
+          </button>
+      </td>
+      <td> <button type="button" class="btn btn-warning" (click)= 'deleteClick(i[0])' >Delete</button></td>
+    </tr>
+
+
+
+  </tbody>
+
+</table>
+
+<!-- Modal card 1 -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-card3></app-card3>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal card 2 update -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Record</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+          <div class="form-group row" style="margin:2px">
+            <label >First Name</label>
+
+              <input type="text" class="form-control"  [(ngModel)]="FirstName" placeholder="First Name" >
+
+          </div>
+
+          <div class="form-group row" style="margin:2px">
+            <label >Last Name</label>
+
+              <input type="text" class="form-control"  [(ngModel)]="LastName"  placeholder="Last Name">
+
+          </div>
+
+          <div class="form-group row" style="margin:2px">
+            <label>Email</label>
+
+              <input type="text" class="form-control"  [(ngModel)]="Email" placeholder="Email Adress">
+
+          </div>
+
+          <div class="form-group row" style="margin:2px">
+            <label>DOB</label>
+
+              <input type="date" class="form-control"  [(ngModel)]="DOB" placeholder="Date of Birth">
+
+          </div>
+
+          <div class="form-group row" style="margin:2px">
+            <label>Salary</label>
+
+              <input type="text" class="form-control" id="inputPassword" [(ngModel)]="Salary" placeholder="Salary">
+
+          </div>
+
+          <div class="modal-footer">
+            <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            <button type="button" (click)=updateClickSave() class="btn btn-primary ">Update Record</button>
+          </div>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--<button onClick="window.location.reload();">Refresh Page</button> -->
+
+
+
+

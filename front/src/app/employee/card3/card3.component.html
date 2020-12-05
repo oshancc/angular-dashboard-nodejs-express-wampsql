@@ -1,0 +1,48 @@
+
+<form #empForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="FirstName" [(ngModel)]="EmpModel.FirstName" placeholder="First Name" >
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="LastName" [(ngModel)]="EmpModel.LastName"  placeholder="Last Name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control"  name="Email" [(ngModel)]="EmpModel.Email" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">DOB</label>
+    <div class="col-sm-10">
+      <input type="date" class="form-control" name="DOB" [(ngModel)]="EmpModel.DOB" placeholder="DOB">
+
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label  class="col-sm-2 col-form-label">Salary</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name="Salary" [(ngModel)]="EmpModel.Salary" placeholder="Salary">
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button   type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    <button type="submit"  class="btn btn-primary " onClick="window.location.reload();">Add New Record</button>
+  </div>
+
+
+
+
+</form>
